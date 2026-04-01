@@ -32,70 +32,38 @@ The system controls:
 ## System Architecture
 
 ```mermaid
-graph TB
-    subgraph Library Network
-        NAV["Navigation PC<br/>192.168.3.100:7000<br/>SLAM · Path Planning · Chassis Control"]
-        NR["Node-RED<br/>10.10.3.1:1880"]
-        RFID["RFID Reader"]
-        VISION["Vision Camera"]
-    end
+flowchart TB
+    NAV["Navigation PC\n192.168.3.100:7000\nSLAM + Path Planning"]
+    PLC["CODESYS PLC\nLinux SL\n192.168.100.101"]
+    NR["Node-RED\n10.10.3.1:1880"]
+    RFID["RFID Reader"]
+    VIS["Vision Camera"]
+    DRV["XINJE DP3C ×2\nClosed-Loop Stepper"]
+    IO["EtherCAT I/O ×7\n+ Bus Coupler"]
+    MB["Modbus TCP I/O\nE-Stop · Lights"]
 
-    subgraph CODESYS PLC - Linux SL <br/> 192.168.100.101
-        MAIN["MainTask ~10ms<br/>AGV State Machine<br/>HTTP/TCP Client"]
-        ETC_TASK["EtherCAT_Task 1ms<br/>SoftMotion Axis Control<br/>PDO Exchange"]
-        VISU["VISU_TASK ~50ms<br/>Web HMI HTML5"]
-    end
-
-    subgraph EtherCAT Bus - 1ms DC-Sync
-        DRV1["XINJE DP3C #1<br/>Vertical Lift Axis"]
-        DRV2["XINJE DP3C #2<br/>Secondary Axis"]
-        IO["I/O Terminals ×7<br/>+ Bus Coupler"]
-    end
-
-    MB["Modbus TCP I/O<br/>E-Stop · Axis Enable · Lights"]
-
-    NAV <-->|"HTTP REST + WebSocket<br/>/api/template/navigating<br/>/api/charging/start·stop<br/>/api/ws"| MAIN
-    NR <-->|"HTTP POST<br/>/istore"| MAIN
-    RFID <-->|"TCP Socket<br/>DataTransReq/Rec"| MAIN
-    VISION <-->|"TCP Socket"| MAIN
-
-    ETC_TASK -->|"CSP 0x607A"| DRV1
-    ETC_TASK -->|"CSP 0x607A"| DRV2
-    ETC_TASK --> IO
-
-    MAIN --> MB
-    MAIN --> ETC_TASK
+    NAV <-- "HTTP REST + WebSocket" --> PLC
+    NR <-- "HTTP POST /istore" --> PLC
+    RFID <-- "TCP Socket" --> PLC
+    VIS <-- "TCP Socket" --> PLC
+    PLC -- "EtherCAT CSP 1ms" --> DRV
+    PLC -- "EtherCAT 1ms" --> IO
+    PLC -- "Modbus TCP" --> MB
 ```
 
-## Mechanical Design
+## Workflow
 
 ```mermaid
-graph TB
-    subgraph Scanning Head
-        SENSOR["RFID Antenna Array + Camera<br/>Mounted on linear carriage"]
-    end
-
-    subgraph Linear Guide Rail
-        RAIL["XINJE DP3C #1 — Axis 01<br/>Closed-loop stepper drive<br/>Belt/ballscrew transmission<br/>Travel: LowerLevel → UpperLevel<br/>Resolution: ~250-350mm per shelf layer"]
-    end
-
-    subgraph AGV Chassis
-        direction LR
-        NAV_PC["Navigation PC<br/>SLAM"]
-        PLC["CODESYS PLC<br/>Linux SL"]
-        MODBUS["Modbus I/O"]
-        BATT["Battery Pack"]
-        LW["Left Wheel"]
-        RW["Right Wheel"]
-    end
-
-    SENSOR --- RAIL
-    RAIL --- PLC
-    NAV_PC --- PLC
-    PLC --- MODBUS
-    PLC --- BATT
-    NAV_PC -.- LW
-    NAV_PC -.- RW
+flowchart LR
+    A["IDLE"] --> B["Navigate\nto Shelf"]
+    B --> C["Dock &\nAlign"]
+    C --> D["Scan\nLayer-by-Layer"]
+    D --> E{"More\nShelves?"}
+    E -- Yes --> B
+    E -- No --> F{"Battery\nLow?"}
+    F -- Yes --> G["Auto\nCharge"]
+    G --> B
+    F -- No --> H["Complete\nReturn Home"]
 ```
 
 ## Source Code (IEC 61131-3 Structured Text)
@@ -134,30 +102,14 @@ Representative ST code illustrating key control patterns. See [`src/README.md`](
 
 ## Technology Stack
 
-```mermaid
-block-beta
-    columns 1
-    block:APP["APPLICATION LAYER"]
-        A1["AGV State Machine"] A2["Inventory Scheduler"] A3["HMI (HTML5)"]
-    end
-    block:COMM["COMMUNICATION LAYER"]
-        B1["HTTP REST Client"] B2["WebSocket"] B3["TCP Client/Server"] B4["JSON"]
-    end
-    block:MOTION["MOTION CONTROL LAYER"]
-        C1["SoftMotion V4.15"] C2["PLCopen MC_ Function Blocks"]
-    end
-    block:BUS["FIELDBUS LAYER"]
-        D1["EtherCAT Master"] D2["DS402 CSP Mode"] D3["Modbus TCP Master"]
-    end
-    block:HW["HARDWARE LAYER"]
-        E1["XINJE DP3C(L) ×2"] E2["I/O Terminals ×7"] E3["Modbus I/O"]
-    end
-
-    APP --> COMM --> MOTION --> BUS --> HW
-```
+| Layer | Components |
+|-------|-----------|
+| **Application** | AGV State Machine · Inventory Scheduler · Web HMI (HTML5) |
+| **Communication** | HTTP REST Client · WebSocket · TCP Client/Server · JSON Utilities |
+| **Motion Control** | SoftMotion V4.15 · PLCopen MC_ (Power, Home, MoveAbsolute, Halt, Stop, Reset, Jog) |
+| **Fieldbus** | EtherCAT Master (DC-Sync) · DS402 CSP Mode · Modbus TCP Master |
+| **Hardware** | XINJE DP3C(L) ×2 · EtherCAT I/O Terminals ×7 · Modbus Remote I/O |
 
 ## License
 
-This repository contains technical documentation and configuration files for an industrial AGV control system. The CODESYS project source code is proprietary and not included. Hardware-specific configuration files (ESI XML) are provided for reference.
-
-MIT License — Documentation and diagrams only.
+MIT License — See [LICENSE](LICENSE) for details.
