@@ -1,0 +1,2302 @@
+<?xml version="1.0"?>
+<DeviceDescription xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.3s-software.com/schemas/DeviceDescription-1.0.xsd https://de.codesys.com/fileadmin/data/schemas/DeviceDescription-1.0.xsd http://www.3s-software.com/schemas/TargetSettings-0.1.xsd https://de.codesys.com/fileadmin/data/schemas/TargetSettings-0.1.xsd" xmlns="http://www.3s-software.com/schemas/DeviceDescription-1.0.xsd">
+  <!--created with CoDeSys 3.x (http://www.codesys.com) by DeviceDescriptionBuilder (3S-Smart Software Solutions GmbH)-->
+  <Types namespace="localTypes">
+    <StructType name="TSyncMgr">
+      <Component identifier="physicalAddress" type="std:WORD">
+        <Default>8000</Default>
+        <VisibleName name="local:TSyncMgr_physicalAddress">Physical Address</VisibleName>
+      </Component>
+      <Component identifier="length" type="std:UINT">
+        <Default>10</Default>
+        <VisibleName name="local:TSyncMgr_length">Length</VisibleName>
+      </Component>
+      <Component identifier="flagtypedir" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TSyncMgr_flagtypedir">FlagTypeDir</VisibleName>
+      </Component>
+      <Component identifier="flagevent" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TSyncMgr_flagevent">FlagEvent</VisibleName>
+      </Component>
+      <Component identifier="flagctrl" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TSyncMgr_flagctrl">FlagControl</VisibleName>
+      </Component>
+      <Component identifier="synctype" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TSyncMgr_synctype">SyncType</VisibleName>
+      </Component>
+      <Component identifier="syncvirtual" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TSyncMgr_flagvirtual">Virtual</VisibleName>
+      </Component>
+      <Component identifier="syncoponly" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TSyncMgr_oponly">OpOnly</VisibleName>
+      </Component>
+    </StructType>
+    <StructType name="TFMMU">
+      <Component identifier="globstartadr" type="std:DWORD">
+        <Default>8000</Default>
+        <VisibleName name="local:TFMMU_globstartadr">Global Start Address</VisibleName>
+      </Component>
+      <Component identifier="length" type="std:UINT">
+        <Default>1</Default>
+        <VisibleName name="local:TFMMU_length">Length</VisibleName>
+      </Component>
+      <Component identifier="startbit" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TFMMU_startbit">StartBit</VisibleName>
+      </Component>
+      <Component identifier="endbit" type="std:BYTE">
+        <Default>3</Default>
+        <VisibleName name="local:TFMMU_endbit">EndBit</VisibleName>
+      </Component>
+      <Component identifier="physstartadr" type="std:UINT">
+        <Default>3840</Default>
+        <VisibleName name="local:TFMMU_physstartadr">Physical Start Address</VisibleName>
+      </Component>
+      <Component identifier="logstartbit" type="std:BYTE">
+        <Default>0</Default>
+        <VisibleName name="local:TFMMU_logstartbit">Logical Start Bit</VisibleName>
+      </Component>
+      <Component identifier="access" type="std:BYTE">
+        <Default>2</Default>
+        <VisibleName name="local:TFMMU_access">Access</VisibleName>
+      </Component>
+      <Component identifier="flags" type="std:DWORD">
+        <Default>0</Default>
+        <VisibleName name="local:TFMMU_flags">Flags</VisibleName>
+      </Component>
+    </StructType>
+    <StructType name="MailboxCapabilities">
+      <Component identifier="HasCoE" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:HasCoE">HasCoE</VisibleName>
+      </Component>
+      <Component identifier="HasSoE" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:HasSoE">HasSoE</VisibleName>
+      </Component>
+      <Component identifier="HasAoE" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:HasAoE">HasAoE</VisibleName>
+      </Component>
+      <Component identifier="HasEoE" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:HasEoE">HasEoE</VisibleName>
+      </Component>
+      <Component identifier="HasFoE" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:HasFoE">HasFoE</VisibleName>
+      </Component>
+      <Component identifier="HasVoE" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:HasVoE">HasVoE</VisibleName>
+      </Component>
+      <Component identifier="NbrChannels" type="std:USINT">
+        <Default />
+        <VisibleName name="local:NbrChannels">NbrChannels</VisibleName>
+      </Component>
+      <Component identifier="Profiles" type="std:ARRAY[0..0] OF WORD">
+        <Default />
+        <VisibleName name="local:Profiles">Profiles</VisibleName>
+      </Component>
+    </StructType>
+    <StructType name="Entry">
+      <Component identifier="Index" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Index">Index</VisibleName>
+        <Description name="local:Index">Index</Description>
+      </Component>
+      <Component identifier="SubIndex" type="std:UINT">
+        <Default />
+        <VisibleName name="local:SubIndex">SubIndex</VisibleName>
+        <Description name="local:SubIndex">SubIndex</Description>
+      </Component>
+      <Component identifier="Size" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Size">Size</VisibleName>
+        <Description name="local:Size">Size</Description>
+      </Component>
+      <Component identifier="Offset" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Offset">Offset</VisibleName>
+        <Description name="local:Offset">Offset</Description>
+      </Component>
+      <Component identifier="DependOnSlot" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:DependOnSlot">DependOnSlot</VisibleName>
+        <Description name="local:DependOnSlot">DependOnSlot</Description>
+      </Component>
+      <Component identifier="DependOnSlotGroup" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:DependOnSlotGroup">DependOnSlotGroup</VisibleName>
+        <Description name="local:DependOnSlotGroup">DependOnSlotGroup</Description>
+      </Component>
+    </StructType>
+    <StructType name="PDO_Information">
+      <Component identifier="Name" type="std:STRING">
+        <Default />
+        <VisibleName name="local:Name">Name</VisibleName>
+        <Description name="local:Name">Name</Description>
+      </Component>
+      <Component identifier="DataType" type="std:STRING">
+        <Default />
+        <VisibleName name="local:DataType">DataType</VisibleName>
+        <Description name="local:DataType">DataType</Description>
+      </Component>
+      <Component identifier="Default" type="std:STRING">
+        <Default />
+        <VisibleName name="local:Default">Default</VisibleName>
+        <Description name="local:Default">Default</Description>
+      </Component>
+      <Component identifier="Comment" type="std:STRING">
+        <Default />
+        <VisibleName name="local:Comment">Comment</VisibleName>
+        <Description name="local:Comment">Comment</Description>
+      </Component>
+    </StructType>
+    <StructType name="RxTxPdo">
+      <Component identifier="NumberofExcludes" type="std:INT">
+        <Default />
+        <VisibleName name="local:NumberofExcludes">NumberofExcludes</VisibleName>
+      </Component>
+      <Component identifier="NumberofEntries" type="std:INT">
+        <Default />
+        <VisibleName name="local:NumberofEntries">NumberofEntries</VisibleName>
+      </Component>
+      <Component identifier="Index" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Index">Index</VisibleName>
+      </Component>
+      <Component identifier="Fixed" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:Fixed">Fixed</VisibleName>
+      </Component>
+      <Component identifier="Mandatory" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:Mandatory">Mandatory</VisibleName>
+      </Component>
+      <Component identifier="Virtual" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:Virtual">Virtual</VisibleName>
+      </Component>
+      <Component identifier="Sm" type="std:INT">
+        <Default />
+        <VisibleName name="local:Sm">Sm</VisibleName>
+      </Component>
+      <Component identifier="Su" type="std:INT">
+        <Default />
+        <VisibleName name="local:Su">Su</VisibleName>
+      </Component>
+      <Component identifier="Name" type="std:STRING">
+        <Default />
+        <VisibleName name="local:Name">Name</VisibleName>
+      </Component>
+      <Component identifier="DependOnSlot" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:DependOnSlot">DependOnSlot</VisibleName>
+      </Component>
+      <Component identifier="DependOnSlotGroup" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:DependOnSlotGroup">DependOnSlotGroup</VisibleName>
+      </Component>
+      <Component identifier="OverwrittenByModule" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:OverwrittenByModule">OverwrittenByModule</VisibleName>
+      </Component>
+    </StructType>
+    <StructType name="FMMU">
+      <Component identifier="globstartadr" type="std:DWORD">
+        <Default />
+        <VisibleName name="local:globstartadr">Global Start Address</VisibleName>
+        <Description name="local:globstartadr">Global Start Address</Description>
+      </Component>
+      <Component identifier="length" type="std:UINT">
+        <Default />
+        <VisibleName name="local:length">Length</VisibleName>
+        <Description name="local:length">Length</Description>
+      </Component>
+      <Component identifier="startbit" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:startbit">StartBit</VisibleName>
+        <Description name="local:startbit">StartBit</Description>
+      </Component>
+      <Component identifier="endbit" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:endbit">EndBit</VisibleName>
+        <Description name="local:endbit">EndBit</Description>
+      </Component>
+      <Component identifier="physstartadr" type="std:UINT">
+        <Default />
+        <VisibleName name="local:physstartadr">Physical Start Address</VisibleName>
+        <Description name="local:physstartadr">Physical Start Address</Description>
+      </Component>
+      <Component identifier="logstartbit" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:logstartbit">Logical Start Bit</VisibleName>
+        <Description name="local:logstartbit">Logical Start Bit</Description>
+      </Component>
+      <Component identifier="access" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:access">Access</VisibleName>
+        <Description name="local:access">Access</Description>
+      </Component>
+      <Component identifier="flags" type="std:DWORD">
+        <Default />
+        <VisibleName name="local:flags">Flags</VisibleName>
+        <Description name="local:flags">Flags</Description>
+      </Component>
+    </StructType>
+    <StructType name="Sync">
+      <Component identifier="physicalAddress" type="std:WORD">
+        <Default />
+        <VisibleName name="local:physicalAddress">Physical Address</VisibleName>
+        <Description name="local:physicalAddress">Physical Address</Description>
+      </Component>
+      <Component identifier="length" type="std:UINT">
+        <Default />
+        <VisibleName name="local:length">Length</VisibleName>
+        <Description name="local:length">Length</Description>
+      </Component>
+      <Component identifier="flagtypedir" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:flagtypedir">FlagTypeDir</VisibleName>
+        <Description name="local:flagtypedir">FlagTypeDir</Description>
+      </Component>
+      <Component identifier="flagevent" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:flagevent">FlagEvent</VisibleName>
+        <Description name="local:flagevent">FlagEvent</Description>
+      </Component>
+      <Component identifier="flagctrl" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:flagctrl">FlagControl</VisibleName>
+        <Description name="local:flagctrl">FlagControl</Description>
+      </Component>
+      <Component identifier="synctype" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:synctype">SyncType</VisibleName>
+        <Description name="local:synctype">SyncType</Description>
+      </Component>
+      <Component identifier="flagvirtual" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:flagvirtual">Virtual</VisibleName>
+        <Description name="local:flagvirtual">Virtual</Description>
+      </Component>
+      <Component identifier="oponly" type="std:BYTE">
+        <Default />
+        <VisibleName name="local:oponly">OpOnly</VisibleName>
+        <Description name="local:oponly">OpOnly</Description>
+      </Component>
+    </StructType>
+    <StructType name="Struct_SDOParameters">
+      <Component identifier="Index" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Index">Index</VisibleName>
+        <Description name="local:Index">Index</Description>
+      </Component>
+      <Component identifier="Subindex" type="std:USINT">
+        <Default />
+        <VisibleName name="local:Subindex">Subindex</VisibleName>
+        <Description name="local:Subindex">Subindex</Description>
+      </Component>
+      <Component identifier="Value" type="std:UDINT">
+        <Default />
+        <VisibleName name="local:Value">Value</VisibleName>
+        <Description name="local:Value">Value</Description>
+      </Component>
+      <Component identifier="Size" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Size">Size</VisibleName>
+        <Description name="local:Size">Size</Description>
+      </Component>
+      <Component identifier="AbortIfError" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:AbortIfError">AbortIfError</VisibleName>
+        <Description name="local:AbortIfError">AbortIfError</Description>
+      </Component>
+      <Component identifier="JumpToLine" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:JumpToLine">JumpToLine</VisibleName>
+        <Description name="local:JumpToLine">JumpToLine</Description>
+      </Component>
+      <Component identifier="Line" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Line">Line</VisibleName>
+        <Description name="local:Line">Line</Description>
+      </Component>
+      <Component identifier="Transition" type="localTypes:CoEInitCmdTransistion">
+        <Default>0</Default>
+        <VisibleName name="local:Transition">Transition</VisibleName>
+      </Component>
+      <Component identifier="CompleteAccess" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:CompleteAccess">CompleteAccess</VisibleName>
+        <Description name="local:CompleteAccess">CompleteAccess</Description>
+      </Component>
+    </StructType>
+    <EnumType name="CoEInitCmdTransistion" basetype="std:byte">
+      <Enum identifier="CoETransitionPS">
+        <Value>0</Value>
+        <VisibleName name="local:CoEInitCmdTransistionPS">PS</VisibleName>
+      </Enum>
+      <Enum identifier="CoETransitionSO">
+        <Value>1</Value>
+        <VisibleName name="local:CoEInitCmdTransistionSO">SO</VisibleName>
+      </Enum>
+      <Enum identifier="CoETransitionSP">
+        <Value>2</Value>
+        <VisibleName name="local:CoEInitCmdTransistionSP">SP</VisibleName>
+      </Enum>
+      <Enum identifier="CoETransitionOP">
+        <Value>3</Value>
+        <VisibleName name="local:CoEInitCmdTransistionOP">OP</VisibleName>
+      </Enum>
+      <Enum identifier="CoETransitionOS">
+        <Value>4</Value>
+        <VisibleName name="local:CoEInitCmdTransistionOS">OS</VisibleName>
+      </Enum>
+    </EnumType>
+    <StructType name="Struct_SoEParameters">
+      <Component identifier="Idn" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Idn">Idn</VisibleName>
+        <Description name="local:Idn">Idn</Description>
+      </Component>
+      <Component identifier="Value" type="std:UDINT">
+        <Default />
+        <VisibleName name="local:Value">Value</VisibleName>
+        <Description name="local:Value">Value</Description>
+      </Component>
+      <Component identifier="Size" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Size">Size</VisibleName>
+        <Description name="local:Size">Size</Description>
+      </Component>
+      <Component identifier="AbortIfError" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:AbortIfError">AbortIfError</VisibleName>
+        <Description name="local:AbortIfError">AbortIfError</Description>
+      </Component>
+      <Component identifier="JumpToLine" type="std:BOOL">
+        <Default />
+        <VisibleName name="local:JumpToLine">JumpToLine</VisibleName>
+        <Description name="local:JumpToLine">JumpToLine</Description>
+      </Component>
+      <Component identifier="Line" type="std:UINT">
+        <Default />
+        <VisibleName name="local:Line">Line</VisibleName>
+        <Description name="local:Line">Line</Description>
+      </Component>
+      <Component identifier="Transition" type="localTypes:SoEInitCmdTransistion">
+        <Default>0</Default>
+        <VisibleName name="local:Transition">Transition</VisibleName>
+      </Component>
+      <Component identifier="Chn" type="std:WORD">
+        <Default>0</Default>
+        <VisibleName name="local:Chn">Chn</VisibleName>
+      </Component>
+    </StructType>
+    <EnumType name="SoEInitCmdTransistion" basetype="std:byte">
+      <Enum identifier="SoETransitionPS">
+        <Value>0</Value>
+        <VisibleName name="local:SoEInitCmdTransistionPS">PS</VisibleName>
+      </Enum>
+      <Enum identifier="SoETransitionSO">
+        <Value>1</Value>
+        <VisibleName name="local:SoEInitCmdTransistionSO">SO</VisibleName>
+      </Enum>
+      <Enum identifier="SoETransitionSP">
+        <Value>2</Value>
+        <VisibleName name="local:SoEInitCmdTransistionSP">SP</VisibleName>
+      </Enum>
+      <Enum identifier="SoETransitionOP">
+        <Value>3</Value>
+        <VisibleName name="local:SoEInitCmdTransistionOP">OP</VisibleName>
+      </Enum>
+      <Enum identifier="SoETransitionOS">
+        <Value>4</Value>
+        <VisibleName name="local:SoEInitCmdTransistionOS">OS</VisibleName>
+      </Enum>
+      <Enum identifier="SoETransitionIP">
+        <Value>5</Value>
+        <VisibleName name="local:SoEInitCmdTransistionIP">IP</VisibleName>
+      </Enum>
+    </EnumType>
+  </Types>
+  <ParameterFilterFlags />
+  <Strings namespace="local">
+    <Language lang="en-en">
+      <String identifier="TSyncMgr_physicalAddress">Physical Address</String>
+      <String identifier="TSyncMgr_length">Length</String>
+      <String identifier="TSyncMgr_flagtypedir">FlagTypeDir</String>
+      <String identifier="TSyncMgr_flagevent">FlagEvent</String>
+      <String identifier="TSyncMgr_flagctrl">FlagControl</String>
+      <String identifier="TSyncMgr_synctype">SyncType</String>
+      <String identifier="TSyncMgr_flagvirtual">Virtual</String>
+      <String identifier="TSyncMgr_oponly">OpOnly</String>
+      <String identifier="TFMMU_globstartadr">Global Start Address</String>
+      <String identifier="TFMMU_length">Length</String>
+      <String identifier="TFMMU_startbit">StartBit</String>
+      <String identifier="TFMMU_endbit">EndBit</String>
+      <String identifier="TFMMU_physstartadr">Physical Start Address</String>
+      <String identifier="TFMMU_logstartbit">Logical Start Bit</String>
+      <String identifier="TFMMU_access">Access</String>
+      <String identifier="TFMMU_flags">Flags</String>
+      <String identifier="devicename">XINJE-DP3C(L) EtherCAT(CoE) Drive Rev2.1 v1.2.21</String>
+      <String identifier="instancename">XINJE-DP3C(L) CoE Drive Rev2.1 </String>
+      <String identifier="typedevicedescription">EtherCAT Slave imported from Slave XML: XINJE-DP3C(L)-Rev2.2.xml Device: XINJE-DP3C(L) EtherCAT(CoE) Drive Rev2.1 v1.2.21. EtherCAT Communication Unit for Stepdrive</String>
+      <String identifier="XinjeElectricCoaaLtda">Xinje Electric Co., Ltd.</String>
+      <String identifier="StepDrive">StepDrive</String>
+      <String identifier="EtherCAT">EtherCAT</String>
+      <String identifier="General_Section">General</String>
+      <String identifier="Parameter_Identity">Number of Identity Parameters</String>
+      <String identifier="Parameter_VendorID">Vendor Id of the Slave</String>
+      <String identifier="Parameter_ProductCodeDesc">Product Code of the Slave</String>
+      <String identifier="Parameter_CheckProductID">CheckProductID</String>
+      <String identifier="Parameter_CheckVendorID">CheckVendorID</String>
+      <String identifier="Parameter_RevisionNumber">Revision Number of the Slave</String>
+      <String identifier="Parameter_SerialNumber">Serialnumber of the Slave</String>
+      <String identifier="Parameter_PhysAddress">Physical Address of the Slave</String>
+      <String identifier="Parameter_SlaveAutoIncAddress">AutoIncr Address of the Slave</String>
+      <String identifier="Parameter_LinkDelayTimeoutPortB">LinkDelayTimeoutPortB</String>
+      <String identifier="DeviceURL">Device URL</String>
+      <String identifier="deviceURLDescription">http://www.xinje.com</String>
+      <String identifier="DeviceCommment">Device comment</String>
+      <String identifier="deviceCommentescription">EtherCAT Communication Unit for Stepdrive</String>
+      <String identifier="HasCoE">HasCoE</String>
+      <String identifier="HasSoE">HasSoE</String>
+      <String identifier="HasAoE">HasAoE</String>
+      <String identifier="HasEoE">HasEoE</String>
+      <String identifier="HasFoE">HasFoE</String>
+      <String identifier="HasVoE">HasVoE</String>
+      <String identifier="NbrChannels">NbrChannels</String>
+      <String identifier="Profiles">Profiles</String>
+      <String identifier="Parameter_MailboxCapabilities">Mailbox capabilities</String>
+      <String identifier="DiagString">Diag String</String>
+      <String identifier="DiagAck">Diag Acknowledge</String>
+      <String identifier="Parameter_PreOpTimeout">Timeout Init to Preop</String>
+      <String identifier="Parameter_SafeOpTimeout">Timeout Preop to Safeop, SafeOp to Op</String>
+      <String identifier="Parameter_SDOTimeout">Timeout SDO Access</String>
+      <String identifier="Parameter_BackToInitTimeout">Timeout Back to Init</String>
+      <String identifier="Parameter_BackToSafeopTimeout">Timeout Back to SafeOp</String>
+      <String identifier="Parameter_PDOAssign">PDOAssign</String>
+      <String identifier="Parameter_PDOConfig">PDOConfig</String>
+      <String identifier="Parameter_CompleteAccess">CompleteAccess</String>
+      <String identifier="Distributed_Clocks">Distributed_Clocks</String>
+      <String identifier="DCSetting">DCSetting</String>
+      <String identifier="Parameter_Ditributedclocksync0factor">DC sync0 factor</String>
+      <String identifier="Parameter_Ditributedclocksync1factor">DC sync1 factor</String>
+      <String identifier="Parameter_Ditributedclocksync0cycletime">DC sync0 cycletime</String>
+      <String identifier="Parameter_Ditributedclockenable">DC enable</String>
+      <String identifier="Parameter_Ditributedclocksync0enable">DC sync0 enable</String>
+      <String identifier="Parameter_Ditributedclocksync1enable">DC sync1 enable</String>
+      <String identifier="Parameter_Ditributedclocksync1cycletime">DC sync1 cycletime</String>
+      <String identifier="Entry">Entry</String>
+      <String identifier="Index">Index</String>
+      <String identifier="SubIndex">SubIndex</String>
+      <String identifier="Size">Size</String>
+      <String identifier="Offset">Offset</String>
+      <String identifier="DependOnSlot">DependOnSlot</String>
+      <String identifier="DependOnSlotGroup">DependOnSlotGroup</String>
+      <String identifier="OverwrittenByModule">OverwrittenByModule</String>
+      <String identifier="Name">Name</String>
+      <String identifier="DataType">DataType</String>
+      <String identifier="Default">Default</String>
+      <String identifier="Comment">Comment</String>
+      <String identifier="NumberofExcludes">NumberofExcludes</String>
+      <String identifier="NumberofEntries">NumberofEntries</String>
+      <String identifier="Fixed">Fixed</String>
+      <String identifier="Mandatory">Mandatory</String>
+      <String identifier="Virtual">Virtual</String>
+      <String identifier="Sm">Sm</String>
+      <String identifier="Su">Su</String>
+      <String identifier="RxTxPdo">RxTxPdo</String>
+      <String identifier="Exclude">Exclude</String>
+      <String identifier="RxPDO">RxPDO</String>
+      <String identifier="Parameter_NumberOfRx">Number of RxPDOs of the Slave</String>
+      <String identifier="RxPDO1">RxPDO1</String>
+      <String identifier="Control20WordRX1">Control Word</String>
+      <String identifier="TargetPositionRX2">TargetPosition</String>
+      <String identifier="Touch20Probe20FunctionRX3">Touch Probe Function</String>
+      <String identifier="RxPDO2">RxPDO2</String>
+      <String identifier="Profile20VelocityRX3">Profile Velocity</String>
+      <String identifier="Profile20Target20AccelerationRX4">Profile Target Acceleration</String>
+      <String identifier="Profile20Target20DecelerationRX5">Profile Target Deceleration</String>
+      <String identifier="ModeOfOperationRX6">ModeOfOperation</String>
+      <String identifier="RxPDO3">RxPDO3</String>
+      <String identifier="TargetVelocityRX2">TargetVelocity</String>
+      <String identifier="Profile20Target20AccelerationRX3">Profile Target Acceleration</String>
+      <String identifier="Profile20Target20DecelerationRX4">Profile Target Deceleration</String>
+      <String identifier="ModeOfOperationRX5">ModeOfOperation</String>
+      <String identifier="RxPDO4">RxPDO4</String>
+      <String identifier="Homing20methodRX2">Homing method</String>
+      <String identifier="Homing20Velocity28Fast29RX3">Homing Velocity(Fast)</String>
+      <String identifier="Homing20Velocity28Slow29RX4">Homing Velocity(Slow)</String>
+      <String identifier="Homing20AccelerationRX5">Homing Acceleration</String>
+      <String identifier="Homing20OffsetRX6">Homing Offset</String>
+      <String identifier="ModeOfOperationRX7">ModeOfOperation</String>
+      <String identifier="Digital20outputsRX8">Digital outputs</String>
+      <String identifier="TxPDO">TxPDO</String>
+      <String identifier="Parameter_NumberOfTx">Number of TxPDOs of the Slave</String>
+      <String identifier="TxPDO1">TxPDO1</String>
+      <String identifier="Error20codeTX1">Error code</String>
+      <String identifier="Status20WordTX2">Status Word</String>
+      <String identifier="Modes20of20Operation20displayTX3">Modes of Operation display</String>
+      <String identifier="Position20Actual20ValueTX4">Position Actual Value</String>
+      <String identifier="Touch20Probe20StatusTX5">Touch Probe Status</String>
+      <String identifier="Touch20Probe20120Positive20ValueTX6">Touch Probe 1 Positive Value</String>
+      <String identifier="Digital20InputsTX7">Digital Inputs</String>
+      <String identifier="TxPDO2">TxPDO2</String>
+      <String identifier="Status20WordTX1">Status Word</String>
+      <String identifier="ActualPositionTX2">ActualPosition</String>
+      <String identifier="Velocity20actual20valueTX3">Velocity actual value</String>
+      <String identifier="TxPDO3">TxPDO3</String>
+      <String identifier="TxPDO4">TxPDO4</String>
+      <String identifier="FMMUs">FMMUs</String>
+      <String identifier="FMMU">FMMU </String>
+      <String identifier="globstartadr">Global Start Address</String>
+      <String identifier="length">Length</String>
+      <String identifier="startbit">StartBit</String>
+      <String identifier="endbit">EndBit</String>
+      <String identifier="physstartadr">Physical Start Address</String>
+      <String identifier="logstartbit">Logical Start Bit</String>
+      <String identifier="access">Access</String>
+      <String identifier="flags">Flags</String>
+      <String identifier="Parameter_NumberofFMMU">Number of FMMUs of the Slave</String>
+      <String identifier="SyncManager">SyncManager</String>
+      <String identifier="Parameter_NumberofSyncMan">Number of SyncManagers of the Slave</String>
+      <String identifier="Sync">Sync </String>
+      <String identifier="physicalAddress">Physical Address</String>
+      <String identifier="flagtypedir">FlagTypeDir</String>
+      <String identifier="flagevent">FlagEvent</String>
+      <String identifier="flagctrl">FlagControl</String>
+      <String identifier="synctype">SyncType</String>
+      <String identifier="flagvirtual">Virtual</String>
+      <String identifier="oponly">OpOnly</String>
+      <String identifier="_016_1600_1st_RxPDO_Mapping_Section_">16#1600 1st RxPDO Mapping</String>
+      <String identifier="ChannelOutControl20Word">Control Word</String>
+      <String identifier="ChannelOutTargetPosition">TargetPosition</String>
+      <String identifier="ChannelOutTouch20Probe20Function">Touch Probe Function</String>
+      <String identifier="_016_1601_2nd_RxPDO_Mapping_Section_">16#1601 2nd RxPDO Mapping</String>
+      <String identifier="_016_1602_3rd_RxPDO_Mapping_Section_">16#1602 3rd RxPDO Mapping</String>
+      <String identifier="_016_1603_4th_RxPDO_Mapping_Section_">16#1603 4th RxPDO Mapping</String>
+      <String identifier="_116_1A00_1st_TxPDO_Mapping_Section_">16#1A00 1st TxPDO Mapping</String>
+      <String identifier="ChannelInError20code">Error code</String>
+      <String identifier="ChannelInStatus20Word">Status Word</String>
+      <String identifier="ChannelInModes20of20Operation20display">Modes of Operation display</String>
+      <String identifier="ChannelInPosition20Actual20Value">Position Actual Value</String>
+      <String identifier="ChannelInTouch20Probe20Status">Touch Probe Status</String>
+      <String identifier="ChannelInTouch20Probe20120Positive20Value">Touch Probe 1 Positive Value</String>
+      <String identifier="ChannelInDigital20Inputs">Digital Inputs</String>
+      <String identifier="_116_1A01_2nd_TxPDO_Mapping_Section_">16#1A01 2nd TxPDO Mapping</String>
+      <String identifier="_116_1A02_3rd_TxPDO_Mapping_Section_">16#1A02 3rd TxPDO Mapping</String>
+      <String identifier="_116_1A03_4th_TxPDO_Mapping_Section_">16#1A03 4th TxPDO Mapping</String>
+      <String identifier="Map_NumberOfOutputs">Number of Outputs</String>
+      <String identifier="Mapping_NumberOfOutputs">Number of Infos about Outputs</String>
+      <String identifier="Mapping_PhysicalAddressof1Output">Physical Address of 1. Output</String>
+      <String identifier="Mapping_Lengthof1Output">Length of the first Output</String>
+      <String identifier="Mapping_StartBitof1Output">StartBit of the first Output</String>
+      <String identifier="Mapping_EndBitof1Output">EndBit of the first Output</String>
+      <String identifier="Map_NumberOfInputs">Number of Inputs</String>
+      <String identifier="Mapping_NumberOfInputs">Number of Infos about Inputs</String>
+      <String identifier="Mapping_PhysicalAddressof1Input">Physical Address of 1. Input</String>
+      <String identifier="Mapping_Lengthof1Input">Length of the first Input</String>
+      <String identifier="Mapping_StartBitof1Input">StartBit of the first Input</String>
+      <String identifier="Mapping_EndBitof1Input">EndBit of the first Input</String>
+      <String identifier="SDOs">SDOs</String>
+      <String identifier="Parameter_Number_Of_SDO">Number of SDO</String>
+      <String identifier="Name0">Op mode</String>
+      <String identifier="Comment0">Op mode</String>
+      <String identifier="Name1">Interpolation time period</String>
+      <String identifier="Comment1">Interpolation time period</String>
+      <String identifier="Name2">Interpolation time index</String>
+      <String identifier="Comment2">Interpolation time index</String>
+    </Language>
+    <Language lang="en">
+      <String identifier="Index">Index</String>
+      <String identifier="Subindex">Subindex</String>
+      <String identifier="Value">Value</String>
+      <String identifier="Size">Size</String>
+      <String identifier="AbortIfError">AbortIfError</String>
+      <String identifier="JumpToLine">JumpToLine</String>
+      <String identifier="Line">Line</String>
+      <String identifier="Transition">Transition</String>
+      <String identifier="CoEInitCmdTransistionPS">PS</String>
+      <String identifier="CoEInitCmdTransistionSO">SO</String>
+      <String identifier="CoEInitCmdTransistionSP">SP</String>
+      <String identifier="CoEInitCmdTransistionOP">OP</String>
+      <String identifier="CoEInitCmdTransistionOS">OS</String>
+      <String identifier="CompleteAccess">CompleteAccess</String>
+      <String identifier="Idn">Idn</String>
+      <String identifier="Chn">Chn</String>
+      <String identifier="SoEInitCmdTransistionPS">PS</String>
+      <String identifier="SoEInitCmdTransistionSO">SO</String>
+      <String identifier="SoEInitCmdTransistionSP">SP</String>
+      <String identifier="SoEInitCmdTransistionOP">OP</String>
+      <String identifier="SoEInitCmdTransistionOS">OS</String>
+      <String identifier="SoEInitCmdTransistionIP">IP</String>
+    </Language>
+  </Strings>
+  <Files namespace="local">
+    <Language lang="en">
+      <File fileref="local" identifier="XMLFile">
+        <LocalFile>XINJE-DP3C(L)-Rev2.2.xml</LocalFile>
+      </File>
+    </Language>
+  </Files>
+  <Device onlineHelpUrl="http://www.xinje.com">
+    <DeviceIdentification>
+      <Type>65</Type>
+      <Id>556_3030507020211108</Id>
+      <Version>Revision=16#20211108</Version>
+    </DeviceIdentification>
+    <DeviceInfo>
+      <Name name="local:devicename">XINJE-DP3C(L) EtherCAT(CoE) Drive Rev2.1 v1.2.21</Name>
+      <Description name="local:typedevicedescription">EtherCAT Slave imported from Slave XML: XINJE-DP3C(L)-Rev2.2.xml Device: XINJE-DP3C(L) EtherCAT(CoE) Drive Rev2.1 v1.2.21. EtherCAT Communication Unit for Stepdrive</Description>
+      <Vendor name="local:XinjeElectricCoaaLtda">Xinje Electric Co., Ltd.</Vendor>
+      <OrderNumber>XINJE-DP3C(L) CoE Drive Rev2.1 </OrderNumber>
+      <DefaultInstanceName name="local:instancename">XINJE-DP3C(L) CoE Drive Rev2.1 </DefaultInstanceName>
+      <AdditionalFiles>
+        <File name="local:XMLFile" key="Common.File.XML.NativeDescription">XINJE-DP3C(L)-Rev2.2.xml</File>
+      </AdditionalFiles>
+      <SubCategory name="local:XinjeElectricCoaaLtda" TypeCategory="Xinje_Electric_Co_Ltd_">Xinje Electric Co., Ltd.</SubCategory>
+      <SubCategory name="local:StepDrive" TypeCategory="StepDrive" ParentTypeCategory="Xinje_Electric_Co_Ltd_">StepDrive</SubCategory>
+    </DeviceInfo>
+    <Connector moduleType="65" role="child" interface="Common.Ethercat" connectorId="1">
+      <InterfaceName name="local:EtherCAT">EtherCAT</InterfaceName>
+      <Slot allowEmpty="false" />
+      <HostParameterSet>
+        <ParameterSection>
+          <Name name="local:General_Section">General</Name>
+          <Parameter ParameterId="1074796544" type="std:DWORD">
+            <Attributes />
+            <Default>4</Default>
+            <Name name="local:Parameter_Identity">Number of Identity Parameters</Name>
+            <Description name="local:Parameter_Identity">Number of Identity Parameters</Description>
+          </Parameter>
+          <Parameter ParameterId="1074796545" type="std:DWORD">
+            <Attributes />
+            <Default>1366</Default>
+            <Name name="local:Parameter_VendorID">Vendor Id of the Slave</Name>
+            <Description name="local:Parameter_VendorID">Vendor Id of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="1074796546" type="std:DWORD">
+            <Attributes />
+            <Default>808472688</Default>
+            <Name name="local:Parameter_ProductCodeDesc">Product Code of the Slave</Name>
+            <Description name="local:Parameter_ProductCodeDesc">Product Code of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="805306384" type="std:BOOL">
+            <Attributes />
+            <Default>TRUE</Default>
+            <Name name="local:Parameter_CheckProductID">CheckProductID</Name>
+            <Description name="local:Parameter_CheckProductID">CheckProductID</Description>
+          </Parameter>
+          <Parameter ParameterId="805306400" type="std:BOOL">
+            <Attributes />
+            <Default>TRUE</Default>
+            <Name name="local:Parameter_CheckVendorID">CheckVendorID</Name>
+            <Description name="local:Parameter_CheckVendorID">CheckVendorID</Description>
+          </Parameter>
+          <Parameter ParameterId="1074796547" type="std:DWORD">
+            <Attributes />
+            <Default>539037960</Default>
+            <Name name="local:Parameter_RevisionNumber">Revision Number of the Slave</Name>
+            <Description name="local:Parameter_RevisionNumber">Revision Number of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="1074796548" type="std:DWORD">
+            <Attributes />
+            <Default>0</Default>
+            <Name name="local:Parameter_SerialNumber">Serialnumber of the Slave</Name>
+            <Description name="local:Parameter_SerialNumber">Serialnumber of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="1074855936" type="std:DWORD">
+            <Attributes />
+            <Default>0</Default>
+            <Name name="local:Parameter_PhysAddress">Physical Address of the Slave</Name>
+            <Description name="local:Parameter_PhysAddress">Physical Address of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="1074855937" type="std:DWORD">
+            <Attributes />
+            <Default>0</Default>
+            <Name name="local:Parameter_SlaveAutoIncAddress">AutoIncr Address of the Slave</Name>
+            <Description name="local:Parameter_SlaveAutoIncAddress">AutoIncr Address of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="1074856000" type="std:UINT">
+            <Attributes />
+            <Default>1000</Default>
+            <Name name="local:Parameter_LinkDelayTimeoutPortB">LinkDelayTimeoutPortB</Name>
+            <Description name="local:Parameter_LinkDelayTimeoutPortB">LinkDelayTimeoutPortB</Description>
+          </Parameter>
+          <Parameter ParameterId="1074797064" type="std:STRING">
+            <Attributes offlineaccess="read" download="false" />
+            <Default>'http://www.xinje.com'</Default>
+            <Name name="local:DeviceURL">Device URL</Name>
+            <Description name="local:deviceURLDescription">http://www.xinje.com</Description>
+          </Parameter>
+          <Parameter ParameterId="1074797065" type="std:STRING">
+            <Attributes offlineaccess="read" download="false" />
+            <Default>'EtherCAT Communication Unit for Stepdrive'</Default>
+            <Name name="local:DeviceCommment">Device comment</Name>
+            <Description name="local:deviceCommentescription">EtherCAT Communication Unit for Stepdrive</Description>
+          </Parameter>
+          <Parameter ParameterId="805306688" type="localTypes:MailboxCapabilities">
+            <Attributes offlineaccess="read" download="false" />
+            <Default>
+              <Element name="HasCoE">True</Element>
+              <Element name="HasSoE">False</Element>
+              <Element name="HasAoE">False</Element>
+              <Element name="HasFoE">False</Element>
+              <Element name="HasEoE">False</Element>
+              <Element name="HasVoE">False</Element>
+              <Element name="NbrChannels">0</Element>
+              <Element name="Profiles">[402]</Element>
+            </Default>
+            <Name name="local:Parameter_MailboxCapabilities">Mailbox capabilities</Name>
+          </Parameter>
+          <Parameter ParameterId="1074855984" type="std:STRING(255)">
+            <Attributes offlineaccess="none" channel="diag" />
+            <Default />
+            <Name name="local:DiagString">Diag String</Name>
+          </Parameter>
+          <Parameter ParameterId="1074855985" type="std:BOOL">
+            <Attributes offlineaccess="none" channel="diagAck" />
+            <Default>FALSE</Default>
+            <Name name="local:DiagAck">Diag Acknowledge</Name>
+          </Parameter>
+          <Parameter ParameterId="805306432" type="std:DWORD">
+            <Attributes />
+            <Default>3000</Default>
+            <Name name="local:Parameter_PreOpTimeout">Timeout Init to Preop</Name>
+            <Description name="local:Parameter_PreOpTimeout">Timeout Init to Preop</Description>
+          </Parameter>
+          <Parameter ParameterId="805306448" type="std:DWORD">
+            <Attributes />
+            <Default>10000</Default>
+            <Name name="local:Parameter_SafeOpTimeout">Timeout Preop to Safeop, SafeOp to Op</Name>
+            <Description name="local:Parameter_SafeOpTimeout">Timeout Preop to Safeop, SafeOp to Op</Description>
+          </Parameter>
+          <Parameter ParameterId="805306416" type="std:DWORD">
+            <Attributes />
+            <Default>2000</Default>
+            <Name name="local:Parameter_SDOTimeout">Timeout SDO Access</Name>
+            <Description name="local:Parameter_SDOTimeout">Timeout SDO Access</Description>
+          </Parameter>
+          <Parameter ParameterId="805306464" type="std:DWORD">
+            <Attributes />
+            <Default>5000</Default>
+            <Name name="local:Parameter_BackToInitTimeout">Timeout Back to Init</Name>
+            <Description name="local:Parameter_BackToInitTimeout">Timeout Back to Init</Description>
+          </Parameter>
+          <Parameter ParameterId="805306480" type="std:DWORD">
+            <Attributes />
+            <Default>200</Default>
+            <Name name="local:Parameter_BackToSafeopTimeout">Timeout Back to SafeOp</Name>
+            <Description name="local:Parameter_BackToSafeopTimeout">Timeout Back to SafeOp</Description>
+          </Parameter>
+          <Parameter ParameterId="805371904" type="std:BOOL">
+            <Attributes />
+            <Default>TRUE</Default>
+            <Name name="local:Parameter_PDOAssign">PDOAssign</Name>
+            <Description name="local:Parameter_PDOAssign">PDOAssign</Description>
+          </Parameter>
+          <Parameter ParameterId="805392384" type="std:BOOL">
+            <Attributes />
+            <Default>TRUE</Default>
+            <Name name="local:Parameter_PDOConfig">PDOConfig</Name>
+            <Description name="local:Parameter_PDOConfig">PDOConfig</Description>
+          </Parameter>
+          <Parameter ParameterId="805412864" type="std:BOOL">
+            <Attributes />
+            <Default>FALSE</Default>
+            <Name name="local:Parameter_CompleteAccess">CompleteAccess</Name>
+            <Description name="local:Parameter_CompleteAccess">CompleteAccess</Description>
+          </Parameter>
+          <Parameter ParameterId="16777216" type="std:DWORD">
+            <Attributes />
+            <Default>3</Default>
+            <Name name="local:Map_NumberOfOutputs">Number of Outputs</Name>
+            <Description name="local:Map_NumberOfOutputs">Number of Outputs</Description>
+          </Parameter>
+          <Parameter ParameterId="268435456" type="std:DWORD">
+            <Attributes />
+            <Default>3</Default>
+            <Name name="local:Mapping_NumberOfOutputs">Number of Infos about Outputs</Name>
+            <Description name="local:Mapping_NumberOfOutputs">Number of Infos about Outputs</Description>
+          </Parameter>
+          <Parameter ParameterId="268435472" type="std:DWORD">
+            <Attributes />
+            <Default>3840</Default>
+            <Name name="local:Mapping_PhysicalAddressof1Output">Physical Address of 1. Output</Name>
+            <Description name="local:Mapping_PhysicalAddressof1Output">Physical Address of 1. Output</Description>
+          </Parameter>
+          <Parameter ParameterId="268435473" type="std:DWORD">
+            <Attributes />
+            <Default>1</Default>
+            <Name name="local:Mapping_Lengthof1Output">Length of the first Output</Name>
+            <Description name="local:Mapping_Lengthof1Output">Length of the first Output</Description>
+          </Parameter>
+          <Parameter ParameterId="268435474" type="std:DWORD">
+            <Attributes />
+            <Default>0</Default>
+            <Name name="local:Mapping_StartBitof1Output">StartBit of the first Output</Name>
+            <Description name="local:Mapping_StartBitof1Output">StartBit of the first Output</Description>
+          </Parameter>
+          <Parameter ParameterId="268435475" type="std:DWORD">
+            <Attributes />
+            <Default>7</Default>
+            <Name name="local:Mapping_EndBitof1Output">EndBit of the first Output</Name>
+            <Description name="local:Mapping_EndBitof1Output">EndBit of the first Output</Description>
+          </Parameter>
+          <Parameter ParameterId="33554432" type="std:DWORD">
+            <Attributes />
+            <Default>7</Default>
+            <Name name="local:Map_NumberOfInputs">Number of Inputs</Name>
+            <Description name="local:Map_NumberOfInputs">Number of Inputs</Description>
+          </Parameter>
+          <Parameter ParameterId="536870912" type="std:DWORD">
+            <Attributes />
+            <Default>7</Default>
+            <Name name="local:Mapping_NumberOfInputs">Number of Infos about Inputs</Name>
+            <Description name="local:Mapping_NumberOfInputs">Number of Infos about Inputs</Description>
+          </Parameter>
+          <Parameter ParameterId="536870928" type="std:DWORD">
+            <Attributes />
+            <Default>3840</Default>
+            <Name name="local:Mapping_PhysicalAddressof1Input">Physical Address of 1. Input</Name>
+            <Description name="local:Mapping_PhysicalAddressof1Input">Physical Address of 1. Input</Description>
+          </Parameter>
+          <Parameter ParameterId="536870929" type="std:DWORD">
+            <Attributes />
+            <Default>1</Default>
+            <Name name="local:Mapping_Lengthof1Input">Length of the first Input</Name>
+            <Description name="local:Mapping_Lengthof1Input">Length of the first Input</Description>
+          </Parameter>
+          <Parameter ParameterId="536870930" type="std:DWORD">
+            <Attributes />
+            <Default>0</Default>
+            <Name name="local:Mapping_StartBitof1Input">StartBit of the first Input</Name>
+            <Description name="local:Mapping_StartBitof1Input">StartBit of the first Input</Description>
+          </Parameter>
+          <Parameter ParameterId="536870931" type="std:DWORD">
+            <Attributes />
+            <Default>7</Default>
+            <Name name="local:Mapping_EndBitof1Input">EndBit of the first Input</Name>
+            <Description name="local:Mapping_EndBitof1Input">EndBit of the first Input</Description>
+          </Parameter>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:Distributed_Clocks">Distributed_Clocks</Name>
+          <Parameter ParameterId="1610833920" type="std:WORD">
+            <Attributes onlineaccess="none" offlineaccess="none" download="false" />
+            <Default>0</Default>
+            <Name name="local:DCSetting">DCSetting</Name>
+          </Parameter>
+          <Parameter ParameterId="1610743808" type="std:STRING">
+            <Attributes download="false" />
+            <Default>'x 1'</Default>
+            <Name name="local:Parameter_Ditributedclocksync0factor">DC sync0 factor</Name>
+          </Parameter>
+          <Parameter ParameterId="1610829824" type="std:STRING">
+            <Attributes download="false" />
+            <Default>'x 1'</Default>
+            <Name name="local:Parameter_Ditributedclocksync1factor">DC sync1 factor</Name>
+          </Parameter>
+          <Parameter ParameterId="1610633216" type="std:DWORD">
+            <Attributes />
+            <Default>0</Default>
+            <Name name="local:Parameter_Ditributedclocksync0cycletime">DC sync0 cycletime</Name>
+            <Description name="local:Parameter_Ditributedclocksync0cycletime">DC sync0 cycletime</Description>
+          </Parameter>
+          <Parameter ParameterId="1610678272" type="std:BOOL">
+            <Attributes />
+            <Default>TRUE</Default>
+            <Name name="local:Parameter_Ditributedclockenable">DC enable</Name>
+            <Description name="local:Parameter_Ditributedclockenable">DC enable</Description>
+          </Parameter>
+          <Parameter ParameterId="1610698752" type="std:BOOL">
+            <Attributes />
+            <Default>TRUE</Default>
+            <Name name="local:Parameter_Ditributedclocksync0enable">DC sync0 enable</Name>
+            <Description name="local:Parameter_Ditributedclocksync0enable">DC sync0 enable</Description>
+          </Parameter>
+          <Parameter ParameterId="1610809344" type="std:BOOL">
+            <Attributes />
+            <Default>FALSE</Default>
+            <Name name="local:Parameter_Ditributedclocksync1enable">DC sync1 enable</Name>
+            <Description name="local:Parameter_Ditributedclocksync1enable">DC sync1 enable</Description>
+          </Parameter>
+          <Parameter ParameterId="1610764288" type="std:DWORD">
+            <Attributes />
+            <Default>0</Default>
+            <Name name="local:Parameter_Ditributedclocksync1cycletime">DC sync1 cycletime</Name>
+            <Description name="local:Parameter_Ditributedclocksync1cycletime">DC sync1 cycletime</Description>
+          </Parameter>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:RxPDO">RxPDO</Name>
+          <Parameter ParameterId="1342504960" type="std:DWORD">
+            <Attributes />
+            <Default>4</Default>
+            <Name name="local:Parameter_NumberOfRx">Number of RxPDOs of the Slave</Name>
+            <Description name="local:Parameter_NumberOfRx">Number of RxPDOs of the Slave</Description>
+          </Parameter>
+          <ParameterSection>
+            <Name name="local:RxPDO1">RxPDO1</Name>
+            <ParameterSection>
+              <Name name="local:Control20WordRX1">Control Word</Name>
+              <Parameter ParameterId="1879048194" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6040</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880096770" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Control Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">'2'</Element>
+                  <Element name="Comment">'object 0x6040:0'</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:TargetPositionRX2">TargetPosition</Name>
+              <Parameter ParameterId="1879048195" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#607A</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:TargetPositionRX2">TargetPosition</Name>
+              </Parameter>
+              <Parameter ParameterId="1880096771" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'TargetPosition'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">'2'</Element>
+                  <Element name="Comment">'object 0x607A:0'</Element>
+                </Default>
+                <Name name="local:TargetPositionRX2">TargetPosition</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Touch20Probe20FunctionRX3">Touch Probe Function</Name>
+              <Parameter ParameterId="1879048196" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#60B8</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Touch20Probe20FunctionRX3">Touch Probe Function</Name>
+              </Parameter>
+              <Parameter ParameterId="1880096772" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Touch Probe Function'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">'2'</Element>
+                  <Element name="Comment">'object 0x60B8:0'</Element>
+                </Default>
+                <Name name="local:Touch20Probe20FunctionRX3">Touch Probe Function</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879048192" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">3</Element>
+                <Element name="Index">16#1600</Element>
+                <Element name="Name">'1st RxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">2</Element>
+                <Element name="Su">2</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+          <ParameterSection>
+            <Name name="local:RxPDO2">RxPDO2</Name>
+            <ParameterSection>
+              <Name name="local:Control20WordRX1">Control Word</Name>
+              <Parameter ParameterId="1879048450" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6040</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097026" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Control Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6040:0'</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:TargetPositionRX2">TargetPosition</Name>
+              <Parameter ParameterId="1879048451" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#607A</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:TargetPositionRX2">TargetPosition</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097027" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'TargetPosition'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x607A:0'</Element>
+                </Default>
+                <Name name="local:TargetPositionRX2">TargetPosition</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Profile20VelocityRX3">Profile Velocity</Name>
+              <Parameter ParameterId="1879048452" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6081</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Profile20VelocityRX3">Profile Velocity</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097028" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Profile Velocity'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6081:0'</Element>
+                </Default>
+                <Name name="local:Profile20VelocityRX3">Profile Velocity</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Profile20Target20AccelerationRX4">Profile Target Acceleration</Name>
+              <Parameter ParameterId="1879048453" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6083</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Profile20Target20AccelerationRX4">Profile Target Acceleration</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097029" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Profile Target Acceleration'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Profile20Target20AccelerationRX4">Profile Target Acceleration</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Profile20Target20DecelerationRX5">Profile Target Deceleration</Name>
+              <Parameter ParameterId="1879048454" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6084</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Profile20Target20DecelerationRX5">Profile Target Deceleration</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097030" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Profile Target Deceleration'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Profile20Target20DecelerationRX5">Profile Target Deceleration</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:ModeOfOperationRX6">ModeOfOperation</Name>
+              <Parameter ParameterId="1879048455" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6060</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">8</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:ModeOfOperationRX6">ModeOfOperation</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097031" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'ModeOfOperation'</Element>
+                  <Element name="DataType">'SINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6060:0'</Element>
+                </Default>
+                <Name name="local:ModeOfOperationRX6">ModeOfOperation</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879048448" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">6</Element>
+                <Element name="Index">16#1601</Element>
+                <Element name="Name">'2nd RxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">-1</Element>
+                <Element name="Su">-1</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+          <ParameterSection>
+            <Name name="local:RxPDO3">RxPDO3</Name>
+            <ParameterSection>
+              <Name name="local:Control20WordRX1">Control Word</Name>
+              <Parameter ParameterId="1879048706" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6040</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097282" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Control Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6040:0'</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:TargetVelocityRX2">TargetVelocity</Name>
+              <Parameter ParameterId="1879048707" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#60FF</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:TargetVelocityRX2">TargetVelocity</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097283" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'TargetVelocity'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x60FF:0'</Element>
+                </Default>
+                <Name name="local:TargetVelocityRX2">TargetVelocity</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Profile20Target20AccelerationRX3">Profile Target Acceleration</Name>
+              <Parameter ParameterId="1879048708" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6083</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Profile20Target20AccelerationRX3">Profile Target Acceleration</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097284" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Profile Target Acceleration'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Profile20Target20AccelerationRX3">Profile Target Acceleration</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Profile20Target20DecelerationRX4">Profile Target Deceleration</Name>
+              <Parameter ParameterId="1879048709" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6084</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Profile20Target20DecelerationRX4">Profile Target Deceleration</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097285" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Profile Target Deceleration'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Profile20Target20DecelerationRX4">Profile Target Deceleration</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:ModeOfOperationRX5">ModeOfOperation</Name>
+              <Parameter ParameterId="1879048710" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6060</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">8</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:ModeOfOperationRX5">ModeOfOperation</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097286" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'ModeOfOperation'</Element>
+                  <Element name="DataType">'SINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6060:0'</Element>
+                </Default>
+                <Name name="local:ModeOfOperationRX5">ModeOfOperation</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879048704" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">5</Element>
+                <Element name="Index">16#1602</Element>
+                <Element name="Name">'3rd RxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">-1</Element>
+                <Element name="Su">-1</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+          <ParameterSection>
+            <Name name="local:RxPDO4">RxPDO4</Name>
+            <ParameterSection>
+              <Name name="local:Control20WordRX1">Control Word</Name>
+              <Parameter ParameterId="1879048962" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6040</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097538" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Control Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6040:0'</Element>
+                </Default>
+                <Name name="local:Control20WordRX1">Control Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Homing20methodRX2">Homing method</Name>
+              <Parameter ParameterId="1879048963" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6098</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">8</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Homing20methodRX2">Homing method</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097539" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Homing method'</Element>
+                  <Element name="DataType">'SINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6098:0'</Element>
+                </Default>
+                <Name name="local:Homing20methodRX2">Homing method</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Homing20Velocity28Fast29RX3">Homing Velocity(Fast)</Name>
+              <Parameter ParameterId="1879048964" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6099</Element>
+                  <Element name="SubIndex">1</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Homing20Velocity28Fast29RX3">Homing Velocity(Fast)</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097540" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Homing Velocity(Fast)'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6099'</Element>
+                </Default>
+                <Name name="local:Homing20Velocity28Fast29RX3">Homing Velocity(Fast)</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Homing20Velocity28Slow29RX4">Homing Velocity(Slow)</Name>
+              <Parameter ParameterId="1879048965" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6099</Element>
+                  <Element name="SubIndex">2</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Homing20Velocity28Slow29RX4">Homing Velocity(Slow)</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097541" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Homing Velocity(Slow)'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6099'</Element>
+                </Default>
+                <Name name="local:Homing20Velocity28Slow29RX4">Homing Velocity(Slow)</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Homing20AccelerationRX5">Homing Acceleration</Name>
+              <Parameter ParameterId="1879048966" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#609A</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Homing20AccelerationRX5">Homing Acceleration</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097542" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Homing Acceleration'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Homing20AccelerationRX5">Homing Acceleration</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Homing20OffsetRX6">Homing Offset</Name>
+              <Parameter ParameterId="1879048967" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#607C</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Homing20OffsetRX6">Homing Offset</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097543" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Homing Offset'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Homing20OffsetRX6">Homing Offset</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:ModeOfOperationRX7">ModeOfOperation</Name>
+              <Parameter ParameterId="1879048968" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6060</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">8</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:ModeOfOperationRX7">ModeOfOperation</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097544" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'ModeOfOperation'</Element>
+                  <Element name="DataType">'SINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6060:0'</Element>
+                </Default>
+                <Name name="local:ModeOfOperationRX7">ModeOfOperation</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Digital20outputsRX8">Digital outputs</Name>
+              <Parameter ParameterId="1879048969" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#60FE</Element>
+                  <Element name="SubIndex">1</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Digital20outputsRX8">Digital outputs</Name>
+              </Parameter>
+              <Parameter ParameterId="1880097545" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Digital outputs'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Digital20outputsRX8">Digital outputs</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879048960" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">8</Element>
+                <Element name="Index">16#1603</Element>
+                <Element name="Name">'4th RxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">-1</Element>
+                <Element name="Su">-1</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:TxPDO">TxPDO</Name>
+          <Parameter ParameterId="1342636032" type="std:DWORD">
+            <Attributes />
+            <Default>4</Default>
+            <Name name="local:Parameter_NumberOfTx">Number of TxPDOs of the Slave</Name>
+            <Description name="local:Parameter_NumberOfTx">Number of TxPDOs of the Slave</Description>
+          </Parameter>
+          <ParameterSection>
+            <Name name="local:TxPDO1">TxPDO1</Name>
+            <ParameterSection>
+              <Name name="local:Error20codeTX1">Error code</Name>
+              <Parameter ParameterId="1879375874" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#603F</Element>
+                  <Element name="SubIndex">16#00</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Error20codeTX1">Error code</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424450" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Error code'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">'3'</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Error20codeTX1">Error code</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Status20WordTX2">Status Word</Name>
+              <Parameter ParameterId="1879375875" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6041</Element>
+                  <Element name="SubIndex">16#00</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Status20WordTX2">Status Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424451" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Status Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">'3'</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Status20WordTX2">Status Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Modes20of20Operation20displayTX3">Modes of Operation display</Name>
+              <Parameter ParameterId="1879375876" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6061</Element>
+                  <Element name="SubIndex">16#00</Element>
+                  <Element name="Size">8</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Modes20of20Operation20displayTX3">Modes of Operation display</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424452" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Modes of Operation display'</Element>
+                  <Element name="DataType">'SINT'</Element>
+                  <Element name="Default">'3'</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Modes20of20Operation20displayTX3">Modes of Operation display</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Position20Actual20ValueTX4">Position Actual Value</Name>
+              <Parameter ParameterId="1879375877" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6064</Element>
+                  <Element name="SubIndex">16#00</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Position20Actual20ValueTX4">Position Actual Value</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424453" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Position Actual Value'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">'3'</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Position20Actual20ValueTX4">Position Actual Value</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Touch20Probe20StatusTX5">Touch Probe Status</Name>
+              <Parameter ParameterId="1879375878" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#60B9</Element>
+                  <Element name="SubIndex">16#00</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Touch20Probe20StatusTX5">Touch Probe Status</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424454" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Touch Probe Status'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">'3'</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Touch20Probe20StatusTX5">Touch Probe Status</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Touch20Probe20120Positive20ValueTX6">Touch Probe 1 Positive Value</Name>
+              <Parameter ParameterId="1879375879" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#60BA</Element>
+                  <Element name="SubIndex">16#00</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Touch20Probe20120Positive20ValueTX6">Touch Probe 1 Positive Value</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424455" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Touch Probe 1 Positive Value'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">'3'</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Touch20Probe20120Positive20ValueTX6">Touch Probe 1 Positive Value</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Digital20InputsTX7">Digital Inputs</Name>
+              <Parameter ParameterId="1879375880" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#60FD</Element>
+                  <Element name="SubIndex">16#00</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Digital20InputsTX7">Digital Inputs</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424456" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Digital Inputs'</Element>
+                  <Element name="DataType">'UDINT'</Element>
+                  <Element name="Default">'3'</Element>
+                  <Element name="Comment">''</Element>
+                </Default>
+                <Name name="local:Digital20InputsTX7">Digital Inputs</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879375872" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">7</Element>
+                <Element name="Index">16#1a00</Element>
+                <Element name="Name">'1st TxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">3</Element>
+                <Element name="Su">3</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+          <ParameterSection>
+            <Name name="local:TxPDO2">TxPDO2</Name>
+            <ParameterSection>
+              <Name name="local:Status20WordTX1">Status Word</Name>
+              <Parameter ParameterId="1879376130" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6041</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Status20WordTX1">Status Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424706" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Status Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6041:0'</Element>
+                </Default>
+                <Name name="local:Status20WordTX1">Status Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              <Parameter ParameterId="1879376131" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6064</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424707" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'ActualPosition'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6064:0'</Element>
+                </Default>
+                <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              <Parameter ParameterId="1879376132" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#606C</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424708" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Velocity actual value'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x606C:0'</Element>
+                </Default>
+                <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879376128" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">3</Element>
+                <Element name="Index">16#1a01</Element>
+                <Element name="Name">'2nd TxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">-1</Element>
+                <Element name="Su">-1</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+          <ParameterSection>
+            <Name name="local:TxPDO3">TxPDO3</Name>
+            <ParameterSection>
+              <Name name="local:Status20WordTX1">Status Word</Name>
+              <Parameter ParameterId="1879376386" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6041</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Status20WordTX1">Status Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424962" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Status Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6041:0'</Element>
+                </Default>
+                <Name name="local:Status20WordTX1">Status Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              <Parameter ParameterId="1879376387" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6064</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424963" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'ActualPosition'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6064:0'</Element>
+                </Default>
+                <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              <Parameter ParameterId="1879376388" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#606C</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              </Parameter>
+              <Parameter ParameterId="1880424964" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Velocity actual value'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x606C:0'</Element>
+                </Default>
+                <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879376384" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">3</Element>
+                <Element name="Index">16#1a02</Element>
+                <Element name="Name">'3rd TxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">-1</Element>
+                <Element name="Su">-1</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+          <ParameterSection>
+            <Name name="local:TxPDO4">TxPDO4</Name>
+            <ParameterSection>
+              <Name name="local:Status20WordTX1">Status Word</Name>
+              <Parameter ParameterId="1879376642" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6041</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">16</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Status20WordTX1">Status Word</Name>
+              </Parameter>
+              <Parameter ParameterId="1880425218" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Status Word'</Element>
+                  <Element name="DataType">'UINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6041:0'</Element>
+                </Default>
+                <Name name="local:Status20WordTX1">Status Word</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              <Parameter ParameterId="1879376643" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#6064</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              </Parameter>
+              <Parameter ParameterId="1880425219" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'ActualPosition'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x6064:0'</Element>
+                </Default>
+                <Name name="local:ActualPositionTX2">ActualPosition</Name>
+              </Parameter>
+            </ParameterSection>
+            <ParameterSection>
+              <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              <Parameter ParameterId="1879376644" type="localTypes:Entry">
+                <Attributes />
+                <Default>
+                  <Element name="Index">16#606C</Element>
+                  <Element name="SubIndex">0</Element>
+                  <Element name="Size">32</Element>
+                  <Element name="DependOnSlot">false</Element>
+                  <Element name="DependOnSlotGroup">false</Element>
+                </Default>
+                <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              </Parameter>
+              <Parameter ParameterId="1880425220" type="localTypes:PDO_Information">
+                <Attributes download="false" />
+                <Default>
+                  <Element name="Name">'Velocity actual value'</Element>
+                  <Element name="DataType">'DINT'</Element>
+                  <Element name="Default">''</Element>
+                  <Element name="Comment">'object 0x606C:0'</Element>
+                </Default>
+                <Name name="local:Velocity20actual20valueTX3">Velocity actual value</Name>
+              </Parameter>
+            </ParameterSection>
+            <Parameter ParameterId="1879376640" type="localTypes:RxTxPdo">
+              <Attributes />
+              <Default>
+                <Element name="NumberofExcludes">0</Element>
+                <Element name="NumberofEntries">3</Element>
+                <Element name="Index">16#1a03</Element>
+                <Element name="Name">'4th TxPDO Mapping'</Element>
+                <Element name="Fixed">False</Element>
+                <Element name="Mandatory">False</Element>
+                <Element name="Virtual">False</Element>
+                <Element name="Sm">-1</Element>
+                <Element name="Su">-1</Element>
+                <Element name="DependOnSlot">false</Element>
+                <Element name="DependOnSlotGroup">false</Element>
+                <Element name="OverwrittenByModule">false</Element>
+              </Default>
+              <Name name="local:RxTxPdo">RxTxPdo</Name>
+            </Parameter>
+          </ParameterSection>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:FMMUs">FMMUs</Name>
+          <Parameter ParameterId="1342177312" type="std:DWORD">
+            <Attributes />
+            <Default>3</Default>
+            <Name name="local:Parameter_NumberofFMMU">Number of FMMUs of the Slave</Name>
+            <Description name="local:Parameter_NumberofFMMU">Number of FMMUs of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="1342177313" type="localTypes:FMMU">
+            <Attributes />
+            <Default>
+              <Element name="globstartadr">33554432</Element>
+              <Element name="access">2</Element>
+              <Element name="length">8</Element>
+              <Element name="startbit">0</Element>
+              <Element name="endbit">7</Element>
+              <Element name="physstartadr">4352</Element>
+              <Element name="logstartbit">0</Element>
+              <Element name="flags">1</Element>
+            </Default>
+            <Name name="local:FMMU">FMMU </Name>
+          </Parameter>
+          <Parameter ParameterId="1342177314" type="localTypes:FMMU">
+            <Attributes />
+            <Default>
+              <Element name="globstartadr">16777216</Element>
+              <Element name="access">1</Element>
+              <Element name="length">19</Element>
+              <Element name="startbit">0</Element>
+              <Element name="endbit">7</Element>
+              <Element name="physstartadr">5120</Element>
+              <Element name="logstartbit">0</Element>
+              <Element name="flags">1</Element>
+            </Default>
+            <Name name="local:FMMU">FMMU </Name>
+          </Parameter>
+          <Parameter ParameterId="1342177315" type="localTypes:FMMU">
+            <Attributes />
+            <Default>
+              <Element name="globstartadr">524288</Element>
+              <Element name="access">1</Element>
+              <Element name="length">1</Element>
+              <Element name="startbit">0</Element>
+              <Element name="endbit">0</Element>
+              <Element name="physstartadr">2061</Element>
+              <Element name="logstartbit">0</Element>
+              <Element name="flags">1</Element>
+            </Default>
+            <Name name="local:FMMU">FMMU </Name>
+          </Parameter>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:SyncManager">SyncManager</Name>
+          <Parameter ParameterId="1342177280" type="std:DWORD">
+            <Attributes />
+            <Default>4</Default>
+            <Name name="local:Parameter_NumberofSyncMan">Number of SyncManagers of the Slave</Name>
+            <Description name="local:Parameter_NumberofSyncMan">Number of SyncManagers of the Slave</Description>
+          </Parameter>
+          <Parameter ParameterId="1342177281" type="localTypes:Sync">
+            <Attributes />
+            <Default>
+              <Element name="physicalAddress">4096</Element>
+              <Element name="length">128</Element>
+              <Element name="flagtypedir">38</Element>
+              <Element name="flagevent">0</Element>
+              <Element name="flagctrl">1</Element>
+              <Element name="synctype">3</Element>
+            </Default>
+            <Name name="local:Sync">Sync </Name>
+          </Parameter>
+          <Parameter ParameterId="1342177282" type="localTypes:Sync">
+            <Attributes />
+            <Default>
+              <Element name="physicalAddress">4224</Element>
+              <Element name="length">128</Element>
+              <Element name="flagtypedir">34</Element>
+              <Element name="flagevent">0</Element>
+              <Element name="flagctrl">1</Element>
+              <Element name="synctype">2</Element>
+            </Default>
+            <Name name="local:Sync">Sync </Name>
+          </Parameter>
+          <Parameter ParameterId="1342177283" type="localTypes:Sync">
+            <Attributes />
+            <Default>
+              <Element name="physicalAddress">4352</Element>
+              <Element name="flagtypedir">100</Element>
+              <Element name="synctype">1</Element>
+              <Element name="length">8</Element>
+              <Element name="flagevent">0</Element>
+              <Element name="flagctrl">1</Element>
+              <Element name="flagvirtual">0</Element>
+              <Element name="oponly">0</Element>
+            </Default>
+            <Name name="local:Sync">Sync </Name>
+          </Parameter>
+          <Parameter ParameterId="1342177284" type="localTypes:Sync">
+            <Attributes />
+            <Default>
+              <Element name="physicalAddress">5120</Element>
+              <Element name="flagtypedir">32</Element>
+              <Element name="synctype">0</Element>
+              <Element name="length">19</Element>
+              <Element name="flagevent">0</Element>
+              <Element name="flagctrl">1</Element>
+              <Element name="flagvirtual">0</Element>
+              <Element name="oponly">0</Element>
+            </Default>
+            <Name name="local:Sync">Sync </Name>
+          </Parameter>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_016_1600_1st_RxPDO_Mapping_Section_">16#1600 1st RxPDO Mapping</Name>
+          <Parameter ParameterId="16777218" type="std:UINT">
+            <Attributes channel="output" />
+            <Default>0</Default>
+            <Name name="local:ChannelOutControl20Word">Control Word</Name>
+            <Description name="local:ChannelOutControl20Word">Control Word</Description>
+          </Parameter>
+          <Parameter ParameterId="16777219" type="std:DINT">
+            <Attributes channel="output" />
+            <Default>0</Default>
+            <Name name="local:ChannelOutTargetPosition">TargetPosition</Name>
+            <Description name="local:ChannelOutTargetPosition">TargetPosition</Description>
+          </Parameter>
+          <Parameter ParameterId="16777220" type="std:UINT">
+            <Attributes channel="output" />
+            <Default>0</Default>
+            <Name name="local:ChannelOutTouch20Probe20Function">Touch Probe Function</Name>
+            <Description name="local:ChannelOutTouch20Probe20Function">Touch Probe Function</Description>
+          </Parameter>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_016_1601_2nd_RxPDO_Mapping_Section_">16#1601 2nd RxPDO Mapping</Name>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_016_1602_3rd_RxPDO_Mapping_Section_">16#1602 3rd RxPDO Mapping</Name>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_016_1603_4th_RxPDO_Mapping_Section_">16#1603 4th RxPDO Mapping</Name>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_116_1A00_1st_TxPDO_Mapping_Section_">16#1A00 1st TxPDO Mapping</Name>
+          <Parameter ParameterId="33554434" type="std:UINT">
+            <Attributes channel="input" />
+            <Default>0</Default>
+            <Name name="local:ChannelInError20code">Error code</Name>
+            <Description name="local:ChannelInError20code">Error code</Description>
+          </Parameter>
+          <Parameter ParameterId="33554435" type="std:UINT">
+            <Attributes channel="input" />
+            <Default>0</Default>
+            <Name name="local:ChannelInStatus20Word">Status Word</Name>
+            <Description name="local:ChannelInStatus20Word">Status Word</Description>
+          </Parameter>
+          <Parameter ParameterId="33554436" type="std:SINT">
+            <Attributes channel="input" />
+            <Default>0</Default>
+            <Name name="local:ChannelInModes20of20Operation20display">Modes of Operation display</Name>
+            <Description name="local:ChannelInModes20of20Operation20display">Modes of Operation display</Description>
+          </Parameter>
+          <Parameter ParameterId="33554437" type="std:DINT">
+            <Attributes channel="input" />
+            <Default>0</Default>
+            <Name name="local:ChannelInPosition20Actual20Value">Position Actual Value</Name>
+            <Description name="local:ChannelInPosition20Actual20Value">Position Actual Value</Description>
+          </Parameter>
+          <Parameter ParameterId="33554438" type="std:UINT">
+            <Attributes channel="input" />
+            <Default>0</Default>
+            <Name name="local:ChannelInTouch20Probe20Status">Touch Probe Status</Name>
+            <Description name="local:ChannelInTouch20Probe20Status">Touch Probe Status</Description>
+          </Parameter>
+          <Parameter ParameterId="33554439" type="std:DINT">
+            <Attributes channel="input" />
+            <Default>0</Default>
+            <Name name="local:ChannelInTouch20Probe20120Positive20Value">Touch Probe 1 Positive Value</Name>
+            <Description name="local:ChannelInTouch20Probe20120Positive20Value">Touch Probe 1 Positive Value</Description>
+          </Parameter>
+          <Parameter ParameterId="33554440" type="std:UDINT">
+            <Attributes channel="input" />
+            <Default>0</Default>
+            <Name name="local:ChannelInDigital20Inputs">Digital Inputs</Name>
+            <Description name="local:ChannelInDigital20Inputs">Digital Inputs</Description>
+          </Parameter>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_116_1A01_2nd_TxPDO_Mapping_Section_">16#1A01 2nd TxPDO Mapping</Name>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_116_1A02_3rd_TxPDO_Mapping_Section_">16#1A02 3rd TxPDO Mapping</Name>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:_116_1A03_4th_TxPDO_Mapping_Section_">16#1A03 4th TxPDO Mapping</Name>
+        </ParameterSection>
+        <ParameterSection>
+          <Name name="local:SDOs">SDOs</Name>
+          <Parameter ParameterId="1627389952" type="std:UINT">
+            <Attributes />
+            <Default>3</Default>
+            <Name name="local:Parameter_Number_Of_SDO">Number of SDO</Name>
+            <Description name="local:Parameter_Number_Of_SDO">Number of SDO</Description>
+          </Parameter>
+          <Parameter ParameterId="1627394048" type="localTypes:Struct_SDOParameters">
+            <Attributes />
+            <Default>
+              <Element name="Index">16#6060</Element>
+              <Element name="Subindex">16#00</Element>
+              <Element name="Value">8</Element>
+              <Element name="Size">8</Element>
+              <Element name="AbortIfError">FALSE</Element>
+              <Element name="JumpToLine">FALSE</Element>
+              <Element name="Line">0</Element>
+              <Element name="CompleteAccess">False</Element>
+              <Element name="Transition">0</Element>
+            </Default>
+            <Name name="local:Name0">Op mode</Name>
+            <Description name="local:Comment0">Op mode</Description>
+          </Parameter>
+          <Parameter ParameterId="1627394049" type="localTypes:Struct_SDOParameters">
+            <Attributes />
+            <Default>
+              <Element name="Index">16#60C2</Element>
+              <Element name="Subindex">16#01</Element>
+              <Element name="Value">1</Element>
+              <Element name="Size">8</Element>
+              <Element name="AbortIfError">FALSE</Element>
+              <Element name="JumpToLine">FALSE</Element>
+              <Element name="Line">0</Element>
+              <Element name="CompleteAccess">False</Element>
+              <Element name="Transition">0</Element>
+            </Default>
+            <Name name="local:Name1">Interpolation time period</Name>
+            <Description name="local:Comment1">Interpolation time period</Description>
+          </Parameter>
+          <Parameter ParameterId="1627394050" type="localTypes:Struct_SDOParameters">
+            <Attributes />
+            <Default>
+              <Element name="Index">16#60C2</Element>
+              <Element name="Subindex">16#02</Element>
+              <Element name="Value">253</Element>
+              <Element name="Size">8</Element>
+              <Element name="AbortIfError">FALSE</Element>
+              <Element name="JumpToLine">FALSE</Element>
+              <Element name="Line">0</Element>
+              <Element name="CompleteAccess">False</Element>
+              <Element name="Transition">0</Element>
+            </Default>
+            <Name name="local:Name2">Interpolation time index</Name>
+            <Description name="local:Comment2">Interpolation time index</Description>
+          </Parameter>
+        </ParameterSection>
+      </HostParameterSet>
+      <DriverInfo>
+        <RequiredLib libname="IODrvEtherCAT" vendor="3S - Smart Software Solutions GmbH" version="3.1.2.0" identifier="IODrvEtherCAT" placeholderlib="IODrvEtherCAT">
+          <FBInstance fbname="ETCSlave" fbnamediag="ETCSlave_Diag">
+            <Initialize methodName="Initialize" />
+          </FBInstance>
+        </RequiredLib>
+      </DriverInfo>
+    </Connector>
+  </Device>
+  <ImportPluginVersion>3.5.0.0</ImportPluginVersion>
+</DeviceDescription>

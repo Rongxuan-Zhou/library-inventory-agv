@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LibraryProfile Version="4.15.0.0">
+  <Resolution PlaceholderName="SoftMotion_AddRamps">SM3_AddRampsDefault, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Basic" InsertToplevel="TRUE">SM3_Basic, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_CNC" InsertToplevel="TRUE">SM3_CNC, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_CNC_Visu">SM3_CNC_Visu, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_CPKernelDefaults">SM3_CPKernelDefaults, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Depictor">SM3_Depictor, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Debug">SM3_Debug, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_CiA_DSP402">SM3_Drive_CiA_DSP402, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_ETC">SM3_Drive_ETC, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_ETC_DS402_CyclicSync">SM3_Drive_ETC_DS402_CyclicSync, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_ETC_DS402_IP">SM3_Drive_ETC_DS402_IP, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_CAN">SM3_Drive_CAN, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_CAN_DS402_CyclicSync">SM3_Drive_CAN_DS402_CyclicSync, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_CAN_DS402_IP">SM3_Drive_CAN_DS402_IP, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Drive_PosControl">SM3_Drive_PosControl, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Error">SM3_Error, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_ETC_ITF">SM3_ETC_ITF, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Ramps">SM3_Ramps, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Math">SM3_Math, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_RBase">SM3_RBase, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_RCP">SM3_RCP, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Robotics" InsertToplevel="TRUE">SM3_Robotics, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Robotics_Visu" InsertToplevel="TRUE">SM3_Robotics_Visu, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Shared">SM3_Shared, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_TrajectoryGeneration">SM3_TrajectoryGeneration, 4.13.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Transformation" InsertToplevel="TRUE">SM3_Transformation, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SML_Basic">SML_Basic, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SML_ETC_ITF">SML_ETC_ITF, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_CommonPublic">SM3_CommonPublic, 4.14.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+  <Resolution PlaceholderName="SM3_Dynamics">SM3_Dynamics, 4.15.0.0 (3S - Smart Software Solutions GmbH)</Resolution>
+</LibraryProfile>
